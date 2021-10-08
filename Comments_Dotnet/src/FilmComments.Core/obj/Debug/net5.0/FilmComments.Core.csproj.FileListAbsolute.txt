@@ -1,0 +1,12 @@
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\bin\Debug\net5.0\FilmComments.Core.deps.json
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\bin\Debug\net5.0\FilmComments.Core.dll
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\bin\Debug\net5.0\ref\FilmComments.Core.dll
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\bin\Debug\net5.0\FilmComments.Core.pdb
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.GeneratedMSBuildEditorConfig.editorconfig
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.AssemblyInfoInputs.cache
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.AssemblyInfo.cs
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.csproj.CoreCompileInputs.cache
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.dll
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\ref\FilmComments.Core.dll
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.pdb
+D:\Documents\Corso Full Stack\TNV_FinalProject_GitGudTeam\Comments_Dotnet\src\FilmComments.Core\obj\Debug\net5.0\FilmComments.Core.csproj.AssemblyReference.cache
