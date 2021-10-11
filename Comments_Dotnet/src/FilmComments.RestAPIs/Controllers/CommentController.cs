@@ -21,36 +21,23 @@ namespace FilmComments.RestAPIs.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Comment>> GetAll([FromQuery(Name = "user-id")] int userId = 0)
+        public ActionResult<List<Comment>> GetAll([FromQuery(Name = "user-id")] int userId = 0, [FromQuery(Name = "movie-id")] int movieId = 0)
         {
-            if (userId > 0)
-            {
-                return Ok(_filmCommentService.GetAllCommentsByUserId(userId));
-            }
-
-            return Ok(_filmCommentService.GetAllComments());
-        }
-
-        [HttpGet]
-        [Route("user={user-id}/movie={movie-id}")]
-        public ActionResult<List<Comment>> GetByUserAndMovieId([FromRoute(Name = "user-id")] int userId = 0, [FromRoute(Name = "movie-id")] int movieId = 0) {
-            if (userId > 0 && movieId > 0) {
-                return Ok(_filmCommentService.GetAllCommentsByUserIdAndMovieId(userId, movieId));
-            }
-
-            return Ok(_filmCommentService.GetAllComments());
-        }
-
-        [HttpGet]
-        [Route("movie={movie-id}")]
-        public ActionResult<Comment> GetByMovieId([FromRoute(Name = "movie-id")] int movieId) {
             try {
-                return Ok(_filmCommentService.GetAllCommentsByMovieId(movieId));
+                if (userId > 0 && movieId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByUserIdAndMovieId(userId, movieId));
+                } else if (userId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByUserId(userId));
+                } else if (movieId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByMovieId(movieId));
+                }
+
+                return Ok(_filmCommentService.GetAllComments());
             } catch (CommentNotFoundException e) {
                 return NotFound(BuildErrorResponse(e));
             }
         }
-
+/*
         [HttpGet]
         [Route("{comment-id}")]
         public ActionResult<Comment> GetById([FromRoute(Name = "comment-id")] int commentId)
@@ -64,7 +51,7 @@ namespace FilmComments.RestAPIs.Controllers
                 return NotFound(BuildErrorResponse(e));
             }
         }
-
+*/
         [HttpPost]
         public ActionResult<Comment> Add([FromBody] CommentToSave comment)
         {
