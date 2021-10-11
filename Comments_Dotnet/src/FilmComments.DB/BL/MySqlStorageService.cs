@@ -39,7 +39,15 @@ namespace FilmComments.DB.BL
             .GetByUserId(userId)
             .Select(entity => CommentEntityMapper.ToComment(entity))
             .ToList();
+        public List<Comment> GetByMovieId(int movieId) => _dbService
+            .GetByMovieId(movieId)
+            .Select(entity => CommentEntityMapper.ToComment(entity))
+            .ToList();
 
+        public List<Comment> GetByUserIdAndMovieId(int userId, int movieId) => _dbService
+            .GetByUserIdAndMovieId(userId, movieId)
+            .Select(entity => CommentEntityMapper.ToComment(entity))
+            .ToList();
 
         public Comment GetCommentById(int commentId) =>
             CommentEntityMapper.ToComment(_dbService.GetById(commentId));

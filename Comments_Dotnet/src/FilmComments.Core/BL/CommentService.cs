@@ -24,6 +24,8 @@ namespace FilmComments.Core.BL
         public List<Comment> GetAllComments() => _storageService.GetAllComments();
 
         public List<Comment> GetAllCommentsByUserId(int userId) => _storageService.GetByUserId(userId);
+        public List<Comment> GetAllCommentsByMovieId(int movieId) => _storageService.GetByMovieId(movieId);
+        public List<Comment> GetAllCommentsByUserIdAndMovieId(int userId, int movieId) => _storageService.GetByUserIdAndMovieId(userId, movieId);
 
         public Comment GetCommentById(int commentId) => _storageService.GetCommentById(commentId);
 

@@ -4,6 +4,7 @@ using FilmComments.Core.BL;
 using FilmComments.Core.Exceptions;
 using FilmComments.Core.Model;
 using FilmComments.RestAPIs.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmComments.RestAPIs.Controllers
@@ -28,6 +29,26 @@ namespace FilmComments.RestAPIs.Controllers
             }
 
             return Ok(_filmCommentService.GetAllComments());
+        }
+
+        [HttpGet]
+        [Route("user={user-id}/movie={movie-id}")]
+        public ActionResult<List<Comment>> GetByUserAndMovieId([FromRoute(Name = "user-id")] int userId = 0, [FromRoute(Name = "movie-id")] int movieId = 0) {
+            if (userId > 0 && movieId > 0) {
+                return Ok(_filmCommentService.GetAllCommentsByUserIdAndMovieId(userId, movieId));
+            }
+
+            return Ok(_filmCommentService.GetAllComments());
+        }
+
+        [HttpGet]
+        [Route("movie={movie-id}")]
+        public ActionResult<Comment> GetByMovieId([FromRoute(Name = "movie-id")] int movieId) {
+            try {
+                return Ok(_filmCommentService.GetAllCommentsByMovieId(movieId));
+            } catch (CommentNotFoundException e) {
+                return NotFound(BuildErrorResponse(e));
+            }
         }
 
         [HttpGet]
