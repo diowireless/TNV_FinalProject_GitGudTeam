@@ -8,7 +8,7 @@ namespace FilmComments.Core.Exceptions
         private static string BuildErrorMessage(int commentId)
         {
             string commentIdPlaceholder = commentId == 0 ? "" : $"{commentId} ";
-            return $"The comment {commentIdPlaceholder}must be related to some user.";
+            return $"The comment {commentIdPlaceholder} must be related to some user.";
         }
     }
 }
