@@ -1,3 +1,4 @@
+import { MovieRatingComponent } from './routes/movie-rating/movie-rating.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './routes/dashboard/dashboard.component'
@@ -21,7 +22,8 @@ const routes: Routes = [
   { path: "login", component: LoginPageComponent},
   { path: "filterByGenre", component: FilterByGenreComponent},
   { path: "sortByDate", component:SortByDateComponent},
-  { path: "moviesApi", component: MoviesApiComponent}
+  { path: "moviesApi", component: MoviesApiComponent},
+  { path: "movieRating", component:MovieRatingComponent}
 ];
 
 @NgModule({
