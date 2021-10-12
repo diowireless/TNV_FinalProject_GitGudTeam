@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { FormControl, NgForm } from '@angular/forms';
 
 export interface UserInterface{
-  username: string, 
+  username: string,
   password: string
 }
 
@@ -18,7 +18,7 @@ export class LoginComponent implements OnInit {
 
   //variabili per l'input
   usernameInput: string;
-  passwordInput: string;  
+  passwordInput: string;
 
   //utenti
   root: UserInterface={

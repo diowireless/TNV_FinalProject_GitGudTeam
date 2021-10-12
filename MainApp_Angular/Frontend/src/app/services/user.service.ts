@@ -16,4 +16,7 @@ constructor(private http:HttpClient) { }
     return this.http.get<UserData>(`${this.urlBase}`+"/");
   }
 
+  postUser(user:UserData):Observable<Object>{
+    return this.http.post(`${this.urlBase}`+"/", user);
+  }
 }
