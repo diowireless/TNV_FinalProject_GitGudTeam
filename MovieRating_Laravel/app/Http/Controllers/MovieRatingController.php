@@ -43,28 +43,7 @@ class MovieRatingController extends Controller
 
         return new MovieRatingResource($movieRating);
     }
-  /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
 
-     public function storeByUserandMovieID(Request $request)
-    {
-        $validatedData = Validator::make($request->all(), [
-            'movie_id' => 'required|integer',
-            'user_id' => 'required|integer',
-        ]);
-
-        if ($validatedData->fails()) {
-            return response()->json($validatedData->errors(), Response::HTTP_BAD_REQUEST);
-        }
-
-        $movieRating = MovieRating::create($request->only(['movie_id', 'user_id']));
-
-        return new MovieRatingResource($movieRating);
-    }
 
     /**
      * Display the specified resource.
@@ -102,28 +81,6 @@ class MovieRatingController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\MovieRating  $movieRating
-     * @return \Illuminate\Http\Response
-     */
-    public function updateByUserandMovieID(Request $request, MovieRating $movieRating)
-    {
-        $validatedData = Validator::make($request->all(), [
-            'movie_id' => 'required|integer',
-            'user_id' => 'required|integer',
-        ]);
-
-        if ($validatedData->fails()) {
-            return response()->json($validatedData->errors(), Response::HTTP_BAD_REQUEST);
-        }
-
-        $movieRating->updateByUserandMovieID($request->only(['movie_id', 'user_id']));
-
-        return new MovieRatingResource($movieRating);
-    }
-    /**
      * Remove the specified resource from storage.
      *
      * @param  \App\Models\MovieRating  $movieRating
@@ -136,18 +93,7 @@ class MovieRatingController extends Controller
         return response()->json(null, Response::HTTP_NO_CONTENT);
     }
 
-      /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\MovieRating  $movieRating
-     * @return \Illuminate\Http\Response
-     */
-    public function destroybyUserandMovieID(MovieRating $user_id, $movie_id)
-    {
-        MovieRating::where('movie_id', $movie_id)->where('user_id', $user_id)->delete();
 
-        return response()->json(null, Response::HTTP_NO_CONTENT);
-    }
 
     /**
      * Get movie rating by movie id.
@@ -190,4 +136,51 @@ class MovieRatingController extends Controller
     }
 }
 
+/* Funzioni prova
+---------------------------------------------------------------------
+--Delete
+    public function destroybyUserandMovieID(MovieRating $user_id, $movie_id)
+    {
+        MovieRating::where('movie_id', $movie_id)->where('user_id', $user_id)->delete();
 
+        return response()->json(null, Response::HTTP_NO_CONTENT);
+    }
+
+
+
+---Put
+       public function updateByUserandMovieID(Request $request, MovieRating $movieRating)
+    {
+        $validatedData = Validator::make($request->all(), [
+            'movie_id' => 'required|integer',
+            'user_id' => 'required|integer',
+        ]);
+
+        if ($validatedData->fails()) {
+            return response()->json($validatedData->errors(), Response::HTTP_BAD_REQUEST);
+        }
+
+        $movieRating->updateByUserandMovieID($request->only(['movie_id', 'user_id']));
+
+        return new MovieRatingResource($movieRating);
+    }
+
+--Post
+
+     public function storeByUserandMovieID(Request $request)
+    {
+        $validatedData = Validator::make($request->all(), [
+            'movie_id' => 'required|integer',
+            'user_id' => 'required|integer',
+        ]);
+
+        if ($validatedData->fails()) {
+            return response()->json($validatedData->errors(), Response::HTTP_BAD_REQUEST);
+        }
+
+        $movieRating = MovieRating::create($request->only(['movie_id', 'user_id']));
+
+        return new MovieRatingResource($movieRating);
+    }
+
+    /*
