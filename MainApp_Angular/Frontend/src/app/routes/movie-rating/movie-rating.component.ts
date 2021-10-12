@@ -9,22 +9,24 @@ import { RatingService } from '../../services/rating.service';
 })
 export class MovieRatingComponent implements OnInit {
 
-  rating: MovieRatingInterface;
+  rating: MovieRatingInterface [] = [];
 
   constructor(private ratingservice: RatingService) { }
 
   ngOnInit(): void {
-   this.getMovieRatingOnComponent();
+    this.getMovieRatingOnComponent();
   }
 
-getMovieRatingOnComponent(){
-  this.ratingservice.getRating().subscribe(
-    response => {
-      this.rating = response
-    console.log("i dati ottenuti sono:", this.rating)
-    },
-    error => console.log(error)
-  )
-}
+  getMovieRatingOnComponent() {
+    this.ratingservice.getRating().subscribe(
+      response => {
+        response["data"].forEach(element => {
+          this.rating.push(element)
+        });
+        console.log("i dati ottenuti sono:", this.rating)
+      },
+      error => console.log(error)
+    )
+  }
 
 }
