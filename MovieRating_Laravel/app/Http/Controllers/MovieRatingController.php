@@ -119,7 +119,7 @@ class MovieRatingController extends Controller
             return response()->json($validatedData->errors(), Response::HTTP_BAD_REQUEST);
         }
 
-        $movieRating->update($request->only(['movie_id', 'user_id']));
+        $movieRating->updateByUserandMovieID($request->only(['movie_id', 'user_id']));
 
         return new MovieRatingResource($movieRating);
     }

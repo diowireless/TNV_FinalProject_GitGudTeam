@@ -26,11 +26,11 @@ Route::get('/movie_ratings/movie_id/{movieId}', [MovieRatingController::class, '
 Route::get('/movie_ratings/user_id/{userId}', [MovieRatingController::class, 'getMovieRatingsByUserId']);
 Route::get('/movie_ratings/movie_id/{movieId}/user_id/{userId}', [MovieRatingController::class, 'getMovieRatingsByUserIdAndMovieId']);
 
-/*Route::post('/user_id/{userId}/movie_id/{movieId}',[MovieRatingController::class,'MovieRatingController@storeByUserandMovieID']);*/
+/*Route::post('/user_id/{userId}/movie_id/{movieId}',[MovieRatingController::class,'storeByUserandMovieID']);*/
 
 Route::post('/movie_ratings/movie_id/{movieId}/user_id/{userId}/movie_rating/{movie_rating}',[MovieRatingController::class, 'store']);
 
-/*Route::put('/user_id/{userId}/movie_id/{movieId}', [MovieRatingController::class,'MovieRatingController@updateByUserandMovieID']);*/
+/*Route::put('/user_id/{userId}/movie_id/{movieId}', [MovieRatingController::class,'updateByUserandMovieID']);*/
 Route::put('/movie_ratings/movie_id/{movieId}/user_id/{userId}/movie_rating/{movie_rating}', [MovieRatingController::class,'update']);
 
 Route::delete('/movie_ratings/movie_id/{movieId}/user_id/{userId}', [MovieRatingController::class, 'destroybyUserandMovieID']);
