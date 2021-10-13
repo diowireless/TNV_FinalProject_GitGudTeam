@@ -17,8 +17,8 @@ class MovieRatingCollection extends ResourceCollection
         //return parent::toArray($request);
         return [
             'data' => $this->collection,
-            'Author' => 'Alessandro Tola',
-            'Version' => '1.0'
+            'Author' => 'GitGud Team',
+            'Version' => '2.0'
         ];
     }
 }
