@@ -20,6 +20,7 @@ import { GenrePipePipe } from './pipes/genrePipe/genre-pipe.pipe';
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
+import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
     WelcomePageComponent,
     SortByDateComponent,
     MoviesApiComponent,
+    MoviesByLocationComponent,
   ],
   imports: [
     BrowserModule,
