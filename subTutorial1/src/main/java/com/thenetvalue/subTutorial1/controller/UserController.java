@@ -2,25 +2,26 @@ package com.thenetvalue.subTutorial1.controller;
 
 import com.thenetvalue.subTutorial1.model.User;
 import com.thenetvalue.subTutorial1.service.UserService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/users")
 @CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
-    UserService userService;
+
+
+    private UserService userService;
 
     @Autowired
-    public UserController(UserService userService) {
-        this.userService = userService;
+    public UserController(UserService userSevice) {
+        this.userService = userSevice;
     }
 
     @PostMapping("/")//espone il metodo nella rotta http://localhost:/users/
-    public String addUser(@RequestBody User user) {
-        return userService.addUser(user);
+    public User  addUser(@RequestBody User user) {
+        return  userService.addUser(user);
     }
 
     @GetMapping("/{id}")//espone il metodo nella rotta http://localhost:/users/{id}

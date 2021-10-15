@@ -6,13 +6,14 @@ import com.thenetvalue.subTutorial1.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
+
 import org.springframework.stereotype.Service;
 
-import java.util.List;
+
 import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService  {
 
     UserRepositoryDAO userDao;
 
@@ -26,12 +27,12 @@ public class UserService {
     //implementazioni dei metodi crud----------------------------------------------------------------------------------
 
     //restituisce una stringa che indica il sucesso o meno dell'inserimento dell'utente user
-    public String addUser(User user) {
-        User result = userDao.save(user);
-        if (result != null && result.getId() != 0)
-            return "Utente inserito con sucesso nel DB";
-        else
-            return "Errore: Inserimento fallito";
+    public User addUser(User user) {
+        User result=userDao.findByEmail(user.getEmail());
+        if(result==null ) {
+            userDao.save(user);
+        }
+        return result;
     }
 
     //restituscie un oggetto di tipo user o null se non viene trovato
@@ -57,14 +58,14 @@ public class UserService {
 
     //restituisce l'utente user che ha username uguale a quello passato come parametro.
     public User getUserByUsername(String username) {
-        Optional<User> optionaUser = userDao.findByUsername(username);
-        return  optionaUser.orElse(null);
+        User user = userDao.findByUsername(username);
+        return  user;
     }
 
     //restituisce un utente user che ha la email uguale a quella passata come parametro
     public User getUserByEmail(String email) {
-        Optional<User> optionaUser = userDao.findByEmail(email);
-        return  optionaUser.orElse(null);
+        User user = userDao.findByEmail(email);
+        return  user;
     }
 
 
@@ -77,7 +78,6 @@ public class UserService {
         }
         return "Errore: operazione delete fallita";
     }
-
 }
 
 

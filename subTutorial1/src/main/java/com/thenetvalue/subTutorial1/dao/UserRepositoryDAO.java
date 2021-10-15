@@ -11,8 +11,8 @@ import java.util.Optional;
 @CrossOrigin(origins = "http://localhost:4200")
 public interface UserRepositoryDAO extends CrudRepository<User, Integer> {
 
-    Optional<User> findByUsername(String username) ;
+    User findByUsername(String username) ;
 
-    Optional<User> findByEmail(String email) ;
+    User findByEmail(String email) ;
 
 }
