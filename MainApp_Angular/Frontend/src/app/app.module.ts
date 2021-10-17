@@ -21,6 +21,7 @@ import { WelcomePageComponent } from './routes/welcome-page/welcome-page.compone
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { PageUserComponent } from './routes/page-user/page-user.component';
+import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { PageUserComponent } from './routes/page-user/page-user.component';
     SortByDateComponent,
     MoviesApiComponent,
     PageUserComponent,
+    HandleUserComponent,
   ],
   imports: [
     BrowserModule,

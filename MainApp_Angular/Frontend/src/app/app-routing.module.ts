@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { DashboardComponent } from './routes/dashboard/dashboard.component'
 import { AddComponent } from './routes/add/add.component';
@@ -10,6 +10,7 @@ import { WelcomePageComponent } from './routes/welcome-page/welcome-page.compone
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { PageUserComponent } from './routes/page-user/page-user.component';
+import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 
 
 const routes: Routes = [
@@ -23,7 +24,8 @@ const routes: Routes = [
   { path: "filterByGenre", component: FilterByGenreComponent},
   { path: "sortByDate", component:SortByDateComponent},
   { path: "moviesApi", component: MoviesApiComponent},
-  { path: "signUp", component: PageUserComponent}
+  { path: "signUp", component: PageUserComponent},
+  { path: "HandleLogggedUser", component: HandleUserComponent}
 ];
 
 @NgModule({

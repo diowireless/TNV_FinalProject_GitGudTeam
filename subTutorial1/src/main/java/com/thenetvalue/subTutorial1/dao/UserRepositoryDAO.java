@@ -15,4 +15,6 @@ public interface UserRepositoryDAO extends CrudRepository<User, Integer> {
 
     User findByEmail(String email) ;
 
+    User findByPassword(String password);
+
 }

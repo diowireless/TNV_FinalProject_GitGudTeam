@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 
+import java.util.Locale;
 import java.util.Optional;
 
 @Service
@@ -28,11 +29,26 @@ public class UserService  {
 
     //restituisce una stringa che indica il sucesso o meno dell'inserimento dell'utente user
     public User addUser(User user) {
+        if(user==null || user.equals("")) 
+            return null;
         User result=userDao.findByEmail(user.getEmail());
         if(result==null ) {
             userDao.save(user);
         }
         return result;
+    }
+
+    //restituiece l'utente User solo se la username e la passrword inviate sono corrette.
+    public User checkLogin(String email, String password) {
+
+        System.out.println("chiamato:"+email+":"+password);
+        User result= userDao.findByEmail(email);
+
+        if(result!=null)
+            if(result.getPassword().equals(password))
+                return result;
+
+        return null;
     }
 
     //restituscie un oggetto di tipo user o null se non viene trovato
@@ -47,13 +63,15 @@ public class UserService  {
     }
 
     //Modifica i dati dell'utente con id uguale a quello passato come parametro
-    public String updateUser(int id, User user) {
-        user.setId(id);
-        User result = userDao.save(user);
-        if (result != null && result.getId() != 0)
-            return "Utente inserito con sucesso nel DB";
-        else
-            return "Errore: Inserimento fallito";
+    public User updateUser(int id, User user) {
+        User result = userDao.findByEmail(user.getEmail());
+            if(result != null && result.getId()!=id)
+                return null;
+            user.setId(id);
+            result = userDao.save(user);
+            if(result!=null && result.getId()!=0)
+                return result;
+            return null;
     }
 
     //restituisce l'utente user che ha username uguale a quello passato come parametro.
@@ -70,13 +88,13 @@ public class UserService  {
 
 
     //Elimina le inforamzioni relative all'utente user con id uguale a qyello passato per parametro
-    public String deleteUserById(int id) {
+    public boolean deleteUserById(int id) {
         User result = userDao.findById(id).orElse(null);
             if(result != null) {
                 userDao.deleteById(id);
-                return "Operazione delite eseguita con sucesso.";
+                return true;
         }
-        return "Errore: operazione delete fallita";
+        return false;
     }
 }
 

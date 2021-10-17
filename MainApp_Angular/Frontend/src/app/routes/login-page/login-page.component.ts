@@ -1,9 +1,7 @@
-import { UserData } from '../../models/user.model';
 import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
-
-
 import { MovieApiInterface, ResultInterface } from '../../models/apiMovie.model';
+import { UserData } from '../../models/UserData';
 
 @Component({
   selector: 'app-login-page',
@@ -12,7 +10,7 @@ import { MovieApiInterface, ResultInterface } from '../../models/apiMovie.model'
 })
 export class LoginPageComponent implements OnInit {
 
-  users:UserData;
+  users:UserData[];
 
   constructor(private userService:UserService) { }
 

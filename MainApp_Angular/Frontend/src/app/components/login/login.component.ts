@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormControl, NgForm } from '@angular/forms';
+import { UserService } from '../../services/user.service';
+import { UserData } from 'src/app/models/UserData';
+import { Observable } from 'rxjs';
+import { TransporterService } from '../../services/transporter.service';
 
 export interface UserInterface{
   username: string,
@@ -14,44 +17,47 @@ export interface UserInterface{
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private userService:UserService,
+    private transporterService:TransporterService) { }
 
   //variabili per l'input
-  usernameInput: string;
+  emailInput: string;
   passwordInput: string;
+  datiValidi:boolean;
+  user:UserData;
 
-  //utenti
-  root: UserInterface={
-    username: "root",
-    password: "root"
-  }
-  pippo: UserInterface={
-    username: "pippo",
-    password: "pippo2"
-  }
 
-  //array di UserInterface
-  users: UserInterface[]=[this.root, this.pippo];
 
   ngOnInit(): void {
+    this.transporterService.logged = false;
   }
 
   submitButton(){
-    if(this.usernameInput != null && this.passwordInput !=null){
-      let found = this.searchInsideArray(this.usernameInput, this.passwordInput);
-      if(found){
-        this.router.navigate(['/dashboard']);
-      }
+    if(this.emailInput != null && this.passwordInput !=null){
+      console.log("submitButton");
+      this.checkLogin(this.emailInput, this.passwordInput).subscribe(resultUser =>{
+        this.user = resultUser
+        console.log(this.user);
+        if(this.user!=null) {
+          this.transporterService.userTransported = this.user;//trasporta l'oggetto user nel componente
+                                                              //di destinazione
+          this.transporterService.notifyToLogin(true)//tramite questo metodo di service viene modificat
+                                                      //lo stato dellla proprietà logged in HeaderComponent.
+          this.router.navigate(['/dashboard']);//destinazione
+        }
+        else
+          this.datiValidi = false;
+      },
+      error =>console.error(error)
+      );
+
     }
   }
 
-  searchInsideArray(username: string, password: string): boolean{
-    for(let i=0;i<this.users.length;i++){
-      if(username==this.users[i].username && password == this.users[i].password){
-        return true;
-      }
-    }
-    return false;
+  checkLogin(email: string, password: string):Observable<UserData> {
+    console.log("checkLogin");
+    return this.userService.loginUser(email, password);
   }
 
 }

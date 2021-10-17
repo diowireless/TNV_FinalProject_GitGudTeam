@@ -24,6 +24,12 @@ public class UserController {
         return  userService.addUser(user);
     }
 
+    //espone il metodo nella rotta http:localhost:8080/users/login/
+    @PatchMapping("/login/")
+    public User loginUser(@RequestParam("em") String email, @RequestParam("wr") String password) {
+        return userService.checkLogin(email, password);
+    }
+
     @GetMapping("/{id}")//espone il metodo nella rotta http://localhost:/users/{id}
     public User getUserById(@PathVariable("id") int id) {
         return userService.getUserById(id);
@@ -36,7 +42,7 @@ public class UserController {
     }
 
     @PutMapping("/update/{id}")//espone il metodo nella rotta http://localhost:/users/update/{id}
-    public String updateUser(@PathVariable("id") int id, @RequestBody User user) {
+    public User updateUser(@PathVariable("id") int id, @RequestBody User user) {
         user.setId(id);
         return userService.updateUser(id, user);
     }
@@ -52,7 +58,7 @@ public class UserController {
     }
 
     @DeleteMapping("/delete/{id}")//espone il metodo nella rotta http://localhost:/users/delete/{id}
-    public String deleteUserById(@PathVariable("id") int id) {
+    public boolean deleteUserById(@PathVariable("id") int id) {
         return userService.deleteUserById(id);
     }
 }
