@@ -1,0 +1,64 @@
+
+<div class="col-md-4 offset-md-3">
+  <h1>Personal page {{user.firstName}} {{user.lastName}}</h1>
+<form (ngSubmit)="onSubmit()">
+  <label *ngIf="emailValid==false"><small style="color: red;">{{message}}</small></label>
+  <tr style="text-align: center; align-tracks: center;">
+  <th>
+   <div class="form-group">
+    <label>First Name</label>
+    <input type="text" class="form-control" id="firstName"
+           [(ngModel)]="user.firstName" name="firstName" required>
+   </div>
+   </th>
+   <th>
+   <div class="form-group">
+    <label>Last Name</label>
+    <input type="text" class="form-control" id="lastName"
+           [(ngModel)]="user.lastName" name="lastName" required>
+   </div>
+  </th>
+  </tr>
+  <tr>
+  <th>
+   <div class="form-group">
+    <label>Username</label>
+    <input type="text" class="form-control" id="username"
+           [(ngModel)]="user.username" name="username" required>
+   </div>
+   </th>
+   <th>
+   <div class="form-group">
+    <label>Password</label>
+    <input type="password" class="form-control" id="password"
+           [(ngModel)]="user.password" name="password" required>
+   </div>
+   </th>
+   <th>
+   <div class="form-group">
+    <label>email</label>
+    <input type="email" class="form-control" id="email"
+           [(ngModel)]="user.email" name="email" required>
+   </div>
+   </th>
+   </tr>
+  <tr>
+  <th>
+    <button type="button" (click)="unsuscribe()"  id="unsus" formnovalidate>
+      <small>Unsuscribe</small>
+    </button>
+    <button  type="button" (click)="logOut()" formnovalidate>Log out</button>
+    <button *ngIf="checkForm()" type="submit" formnovalidate>Update</button>
+    <button  type="button" (click)="goBack()" formnovalidate>exit</button>
+    </th>
+  </tr>
+</form>
+</div>
+<div>
+  <label *ngIf="updatefail==true"><small style="color: red;" id="labelmessage">{{fail}}</small></label>
+  <label *ngIf="updatesuccess==true"><small style="color: rgb(17, 148, 209);" id="labelmessage">{{success}}</small></label>
+</div>
+
+
+
+
