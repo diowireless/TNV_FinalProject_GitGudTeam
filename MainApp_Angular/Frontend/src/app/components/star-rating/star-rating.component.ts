@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RatingService } from 'src/app/services/rating.service';
 
 @Component({
   selector: 'app-star-rating',
@@ -7,9 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StarRatingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ratingService: RatingService) { }
 
   rating: number
+
 
   ngOnInit(): void {
   }
@@ -18,4 +20,10 @@ export class StarRatingComponent implements OnInit {
   this.rating = n
   console.log(this.rating)
   }
+
+  postRating(){
+//this.ratingService.addRating().subscribew
+
+  }
+
 }
