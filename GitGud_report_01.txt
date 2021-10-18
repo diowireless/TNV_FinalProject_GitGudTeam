@@ -1,0 +1,24 @@
+Progresso prima settimana Team Git Gud:
+
+Discussione sul design dell'applicazione.
+Ricerca funzionalita' API e librerie esterne per implementare i servizi.
+
+Creazione board Trello per suddivisione task e monitorare l'avanzamento del progetto.
+
+Suddivisione task iniziali: Gianmarco->dotnet, Gianfranco->springboot, Mirko->laravel
+
+Gianmarco:
+	- implementazione di tutti gli endpoint necessari per il servizio commenti
+	- implementazione CORS per accedere agli endpoint del servizio commenti
+	- test di accesso agli endpoint del servizio commenti dalla main app (creazione servizio e modello specifico per i commenti)
+	- creazione delle rotte necessarie all'applicazione finale su Angular
+
+Gianfranco:
+	- modifica servizio springboot per gestire registrazioni, login e informazioni aggiuntive degli utenti
+	- implementazione CORS per accedere agli endpoint del servizio sicurezza
+	- test di accesso agli endpoint del servizio sicurezza dalla main app (compresi modelli e servizi specifici)
+	- test modulo security tramite springboot
+
+Mirko:
+	- modifica delle rotte laravel per restituire l'id delle entrate rating (necessaria per put/delete requests)
+	- test di accesso agli endpoint del servizio rating dalla main app (compresi modello e servizio)

@@ -20,8 +20,12 @@ import { GenrePipePipe } from './pipes/genrePipe/genre-pipe.pipe';
 import { WelcomePageComponent } from './routes/welcome-page/welcome-page.component';
 import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.component';
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
+<<<<<<< HEAD
 import { PageUserComponent } from './routes/page-user/page-user.component';
 import { HandleUserComponent } from './routes/handle-user/handle-user.component';
+=======
+import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
+>>>>>>> angularBranch_gianmarco
 
 @NgModule({
   declarations: [
@@ -40,8 +44,12 @@ import { HandleUserComponent } from './routes/handle-user/handle-user.component'
     WelcomePageComponent,
     SortByDateComponent,
     MoviesApiComponent,
+<<<<<<< HEAD
     PageUserComponent,
     HandleUserComponent,
+=======
+    MoviesByLocationComponent,
+>>>>>>> angularBranch_gianmarco
   ],
   imports: [
     BrowserModule,

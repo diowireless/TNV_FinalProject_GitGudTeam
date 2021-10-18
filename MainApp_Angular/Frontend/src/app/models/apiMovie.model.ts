@@ -1,22 +1,18 @@
 export interface MovieApiInterface{
     average_rating: number,
     backdrop_path : string,
-    description: string, 
+    description: string,
     id: number,
     name: string,
     results: ResultInterface []
-
 }
 
 export interface ResultInterface{
-    adult: boolean,
-    backdrop_path: string,
-    id: number,
-    media_type: string,
-    original_language: string,
+    id : number,
+    title : string,
+    poster_path: string,
     overview: string,
-    popularity: number,
+    vote_average: number,
     release_date: string,
-    title: string,
-    video: boolean
+    genre_ids: number[]
 }
