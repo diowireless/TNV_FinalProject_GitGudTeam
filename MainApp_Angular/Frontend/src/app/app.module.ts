@@ -22,6 +22,7 @@ import { SortByDateComponent } from './routes/sort-by-date/sort-by-date.componen
 import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { RatingService } from './services/rating.service';
 import { MovieRatingComponent } from './routes/movie-rating/movie-rating.component';
+import { StarRatingComponent } from './components/star-rating/star-rating.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { MovieRatingComponent } from './routes/movie-rating/movie-rating.compone
     SortByDateComponent,
     MoviesApiComponent,
     MovieRatingComponent,
+    StarRatingComponent,
   ],
   imports: [
     BrowserModule,
