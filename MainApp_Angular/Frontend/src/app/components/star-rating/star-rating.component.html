@@ -1,9 +1,33 @@
 
 
+<div class="container">
   <div class="rating">
-    <span (click)="updateRating(5)">☆</span>
-    <span (click)="updateRating(4)">☆</span>
-    <span (click)="updateRating(3)">☆</span>
-    <span (click)="updateRating(2)">☆</span>
-    <span (click)="updateRating(1)">☆</span>
+    <label *ngFor="let item of [1,2,3,4,5]" class="fas fa-star fa-xs pointer"
+            (click)="updateRating(item)" [style]="rating >= item ? 'color: gold;' : ' '  "
+    ></label>
   </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+
+  <div class="rating">
+    <span (click)="updateRating(5)" [style]="rating <= 5 ? 'color: gold;' : ' '  ">☆</span>
+    <span (click)="updateRating(4)"[style]="rating <= 4 ? 'color: gold;' : ' '  ">☆</span>
+    <span (click)="updateRating(3)"[style]="rating <= 3 ? 'color: gold;' : ' '  ">☆</span>
+    <span (click)="updateRating(2)"[style]="rating <= 2 ? 'color: gold;' : ' '  ">☆</span>
+    <span (click)="updateRating(1)"[style]="rating <= 1 ? 'color: gold;' : ' '  ">☆</span>
+  </div>
+-->

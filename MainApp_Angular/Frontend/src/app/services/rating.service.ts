@@ -22,7 +22,7 @@ export class RatingService {
       "user_id": user_id,
       "movie_rating": movie_rating
     }
-    return this.http.post<MovieRatingInterface>(this.baseURL + '/post', body)
+    return this.http.post<MovieRatingInterface>(this.baseURL + '', body)
   }
 
   editRating(movie_id, user_id, movie_rating) {
@@ -31,6 +31,6 @@ export class RatingService {
       "user_id": user_id,
       "movie_rating": movie_rating
     }
-    return this.http.put<MovieRatingInterface>(this.baseURL + '/put', body)
+    return this.http.put<MovieRatingInterface>(this.baseURL + '', body)
   }
 }

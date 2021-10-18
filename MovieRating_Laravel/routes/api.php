@@ -28,9 +28,3 @@ Route::get('/movie_ratings/movie_id/{movieId}/user_id/{userId}', [MovieRatingCon
 
 
 
-// I seguenti metodi accettano il payload specificato nel controller ed eseguono le operazioni crud
-Route::post('/movie_ratings/get',[MovieRatingController::class,'storeByUserandMovieID']);
-Route::post('/movie_ratings/post',[MovieRatingController::class, 'store']);
-Route::put('/movie_ratings/put', [MovieRatingController::class,'updateByUserandMovieID']);
-Route::put('/movie_ratings', [MovieRatingController::class,'update']);
-Route::delete('/movie_ratings/delete', [MovieRatingController::class, 'destroybyUserandMovieID']);
