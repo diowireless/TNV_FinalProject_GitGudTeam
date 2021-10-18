@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
     this.logged = false;
   }
 
-  cheangeStateOfLogged(logged:boolean) {
+  changeStateOfLogged(logged:boolean) {
     this.logged = logged;
     this.user = this.transporterService.userTransported;
   }

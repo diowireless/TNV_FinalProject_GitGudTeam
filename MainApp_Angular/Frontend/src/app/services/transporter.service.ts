@@ -14,7 +14,7 @@ export class TransporterService {
   header:HeaderComponent
 
   notifyToLogin(logged:boolean):void {
-    this.header.cheangeStateOfLogged(logged);
+    this.header.changeStateOfLogged(logged);
   }
 
   getHeader(header:HeaderComponent):void {
