@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { TransporterService } from '../../services/transporter.service';
+import { UserData } from '../../models/UserData';
 
 @Component({
   selector: 'app-header',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(private transporterService : TransporterService) { }
+
+  logged:boolean;
+  user:UserData;
 
   ngOnInit(): void {
+    this.transporterService.getHeader(this);
+    this.logged = false;
+  }
+
+  cheangeStateOfLogged(logged:boolean) {
+    this.logged = logged;
+    this.user = this.transporterService.userTransported;
   }
 
 }

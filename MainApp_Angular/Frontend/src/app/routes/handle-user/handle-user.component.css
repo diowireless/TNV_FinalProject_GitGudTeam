@@ -18,9 +18,9 @@ table {
 }
 
 /*titolo*/
-h3 {
+h1 {
   font-family: "DK Lemon Yellow Sun";
-  width: 100px;
+  width: 400px;
   margin-left: 1%;
   margin-top: 2%;
   margin-bottom: 1%;
@@ -28,12 +28,12 @@ h3 {
 
 button {
   float: right;
-  width: 70px;
+  width: 45px;
   margin-top: 10px;
   font-family: "DK Lemon Yellow Sun";
   border-radius: 5px;
   box-sizing: content-box;
-  background-color: rgba(3, 7, 63, 0.932);
+  background-color: rgba(240, 197, 116, 0.4);
 }
 
 /*form username + psw + bottoni*/
@@ -74,3 +74,22 @@ button {
   box-sizing: content-box;
   background-color: rgba(240, 197, 116, 0.4);
 }
+
+/*solo per il button unsuscribe*/
+#unsus {
+  float: right;
+  width: 46px;
+  margin-top: 10px;
+  font-family: "DK Lemon Yellow Sun";
+  border-radius: 5px;
+  box-sizing: content-box;
+  background-color: rgb(204, 41, 41);
+}
+
+#labelmessage {
+  font-size: 18px;
+  font-family: "DK Lemon Yellow Sun";
+  width: 100px;
+  margin-left: 0%;
+}
+
