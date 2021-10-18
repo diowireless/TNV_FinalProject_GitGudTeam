@@ -27,7 +27,7 @@ const routes: Routes = [
   { path: "moviesApi", component: MoviesApiComponent},
   { path: "signUp", component: PageUserComponent},
   { path: "HandleLogggedUser", component: HandleUserComponent},
-  { path: "moviesByLocation/:region", component : MoviesByLocationComponent},
+  { path: "moviesByLocation", component : MoviesByLocationComponent},
 ];
 
 @NgModule({

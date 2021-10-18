@@ -13,8 +13,9 @@ import { CountryApiService } from '../../services/countryapi.service';
 export class MoviesByLocationComponent implements OnInit {
 
   // this needs to be done interactively
-  location;
-  regionISO;
+
+  lng : number;
+  lat : number;
   country : countryApiInterface;
   movies : MovieApiInterface;
   results : ResultInterface[];
@@ -22,28 +23,33 @@ export class MoviesByLocationComponent implements OnInit {
   constructor(private route: ActivatedRoute, private movieApiService:MoviesApiService, private countryApiService : CountryApiService) { }
 
   ngOnInit(): void {
-    this.location = this.route.snapshot.params['region'];
-    this.getCountryISOOnComponent();
+    this.getLocationMovieListOnComponent();
   }
 
-  getCountryISOOnComponent(){
-    this.countryApiService.getCountryISO(this.location).subscribe(
+  getLocationMovieListOnComponent() {
+    this.route.queryParams.subscribe(params => {
+      this.lng = params['lng'];
+      this.lat = params['lat'];
+      this.findGeoData();
+    });
+  }
+
+  findGeoData() {
+    this.countryApiService.getCountry(this.lng, this.lat).subscribe (
       response => {
-        console.log(response[0])
-        this.country = response[0];
-        this.regionISO = this.country.cca2;
-        console.log(this.regionISO)
-        this.getLocationMovieListOnComponent();
+        this.country = response;
+        console.log(this.country)
+        this.findMoviesByCountry();
       },
       error => console.log(error)
     )
   }
 
-  getLocationMovieListOnComponent(){
-    this.movieApiService.getPopularMoviesByLocation(this.regionISO).subscribe(
+  findMoviesByCountry() {
+    this.movieApiService.getPopularMoviesByLocation(this.country.countryCode).subscribe(
       response => {
         this.movies = response;
-        this.results= this.movies.results;
+        this.results = this.movies.results;
       },
       error => console.log(error)
     )

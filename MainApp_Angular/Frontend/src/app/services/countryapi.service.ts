@@ -7,11 +7,11 @@ import { countryApiInterface } from '../models/country.model';
 })
 export class CountryApiService {
 
-    private baseURL = 'https://restcountries.com/v3.1/name/';
+    private countryCodeURL = 'http://api.geonames.org/countryCodeJSON';
 
     constructor( private http : HttpClient) { }
 
-    getCountryISO(region : string) {
-        return this.http.get<countryApiInterface>(this.baseURL+region+"?fullText=true");
+    getCountry(lng : number, lat : number) {
+      return this.http.get<countryApiInterface>(this.countryCodeURL + "?lat=" + lat + "&lng=" + lng + "&username=g.addari")
     }
 }

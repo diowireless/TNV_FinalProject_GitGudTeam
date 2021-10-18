@@ -1,3 +1,5 @@
-export interface countryApiInterface{
-    cca2: string,
+export interface countryApiInterface {
+    countryName: string,
+    countryCode: string
 }
+
