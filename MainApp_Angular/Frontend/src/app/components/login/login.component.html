@@ -2,21 +2,22 @@
     <form>
       <ul>
         <li class="credential-block">
-          <label for="name">Username</label>
+          <label for="name">e-mail</label>
           <span>
-            <input
+            <small *ngIf="(datiValidi==false)" style="color: red;">e-mail o password errate </small>            <input
               type="text"
               id="username"
               name="usernameInput"
               class="input-line"
               required
-              [(ngModel)]="usernameInput"
+              [(ngModel)]="emailInput"
             />
           </span>
         </li>
         <li class="credential-block">
           <label for="name">Password</label>
           <span>
+            <small *ngIf="(datiValidi==false)" style="color: red;">e-mail o password errate </small>
             <input
               type="password"
               id="password"
@@ -35,3 +36,9 @@
       </ul>
     </form>
   </div>
+  <span>
+    <a [routerLink]='["/signUp"]' class="nav-link" style="color: rgb(247, 113, 64);">
+      <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
+      <small>Non sei ancora registrato?</small>Sign Up
+    </a>
+  </span>

@@ -23,6 +23,9 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { RatingService } from './services/rating.service';
 import { MovieRatingComponent } from './routes/movie-rating/movie-rating.component';
 import { StarRatingComponent } from './components/star-rating/star-rating.component';
+import { PageUserComponent } from './routes/page-user/page-user.component';
+import { HandleUserComponent } from './routes/handle-user/handle-user.component';
+import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +46,9 @@ import { StarRatingComponent } from './components/star-rating/star-rating.compon
     MoviesApiComponent,
     MovieRatingComponent,
     StarRatingComponent,
+    PageUserComponent,
+    HandleUserComponent,
+    MoviesByLocationComponent,
   ],
   imports: [
     BrowserModule,

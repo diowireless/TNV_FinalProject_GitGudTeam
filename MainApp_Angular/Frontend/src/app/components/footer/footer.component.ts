@@ -9,7 +9,10 @@ export class FooterComponent implements OnInit {
 
   constructor() { }
 
+  logged:boolean;
+
   ngOnInit(): void {
+    this.logged = false;
   }
 
 }

@@ -7,15 +7,19 @@ import { MovieApiInterface } from '../models/apiMovie.model';
 })
 export class MoviesApiService {
 
-    private baseURL = 'https://api.themoviedb.org/4/';
+    private baseURLv4 = 'https://api.themoviedb.org/4/';
 	// added tmdb API v3 for additional endpoints
-    private baseURLv3 = 'https://api.themoviedb.org/3/';
+    private baseURL = 'https://api.themoviedb.org/3/';
     private apiKey = "f46dab926578b2b055569494fd66a4b0";
 
     constructor( private http : HttpClient) { }
 
     getMarvelList(){
-        return this.http.get<MovieApiInterface>(this.baseURL+"list/1?api_key="+this.apiKey);
+        return this.http.get<MovieApiInterface>(this.baseURLv4+"list/1?api_key="+this.apiKey);
+    }
+    getPopularMoviesByLocation(regionISO) {
+        return this.http.get<MovieApiInterface>(this.baseURL+"discover/movie?api_key="+this.apiKey
+        +"&region="+regionISO+"&sort_by=popularity.desc&include_adult=false&include_video=false&page=1");
     }
 
 }

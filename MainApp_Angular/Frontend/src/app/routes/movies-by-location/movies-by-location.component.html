@@ -1,0 +1,27 @@
+<div class="container p-5" >
+  <h1 class="text-center mb-5">
+    Most popular movies in {{country.countryName}}!
+  </h1>
+
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Title</th>
+        <th scope="col">Overview</th>
+        <th scope="col">Vote</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="pointer" *ngFor="let entry of results">
+        <td> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120></td>
+        <td> {{entry.title}} ({{entry.release_date.substring(0,4)}})</td>
+        <td>{{entry.overview}}</td>
+        <td>{{entry.vote_average}}</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<app-loading-page *ngIf="results==null" ></app-loading-page>

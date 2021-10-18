@@ -30,6 +30,14 @@ namespace FilmComments.DB.BL
             .Comments
             .Where(c => c.UserId == userId)
             .ToList();
+        public List<CommentEntity> GetByMovieId(int movieId) => _contextManager
+            .Comments
+            .Where(c => c.MovieId == movieId)
+            .ToList();
+        public List<CommentEntity> GetByUserIdAndMovieId(int userId, int movieId) => _contextManager
+            .Comments
+            .Where(c => c.UserId == userId && c.MovieId == movieId)
+            .ToList();
 
         public CommentEntity Add(CommentEntity comment)
         {
