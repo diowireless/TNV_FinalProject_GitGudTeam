@@ -4,10 +4,12 @@ using FilmComments.Core.BL;
 using FilmComments.Core.Exceptions;
 using FilmComments.Core.Model;
 using FilmComments.RestAPIs.Model;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 
 namespace FilmComments.RestAPIs.Controllers
 {
+
     [ApiController]
     [Route("comments")]
     public class CommentController : ControllerBase
@@ -20,16 +22,23 @@ namespace FilmComments.RestAPIs.Controllers
         }
 
         [HttpGet]
-        public ActionResult<List<Comment>> GetAll([FromQuery(Name = "user-id")] int userId = 0)
+        public ActionResult<List<Comment>> GetAll([FromQuery(Name = "user-id")] int userId = 0, [FromQuery(Name = "movie-id")] int movieId = 0)
         {
-            if (userId > 0)
-            {
-                return Ok(_filmCommentService.GetAllCommentsByUserId(userId));
+            try {
+                if (userId > 0 && movieId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByUserIdAndMovieId(userId, movieId));
+                } else if (userId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByUserId(userId));
+                } else if (movieId > 0) {
+                    return Ok(_filmCommentService.GetAllCommentsByMovieId(movieId));
+                }
+
+                return Ok(_filmCommentService.GetAllComments());
+            } catch (CommentNotFoundException e) {
+                return NotFound(BuildErrorResponse(e));
             }
-
-            return Ok(_filmCommentService.GetAllComments());
         }
-
+/*
         [HttpGet]
         [Route("{comment-id}")]
         public ActionResult<Comment> GetById([FromRoute(Name = "comment-id")] int commentId)
@@ -43,7 +52,7 @@ namespace FilmComments.RestAPIs.Controllers
                 return NotFound(BuildErrorResponse(e));
             }
         }
-
+*/
         [HttpPost]
         public ActionResult<Comment> Add([FromBody] CommentToSave comment)
         {

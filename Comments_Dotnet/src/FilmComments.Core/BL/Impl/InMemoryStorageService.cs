@@ -29,9 +29,14 @@ namespace FilmComments.Core.BL.Impl
             return commentToAdd;
         }
 
-        public List<Comment> GetByUserId(int userId)
-        {
+        public List<Comment> GetByUserId(int userId) {
             return _comments.Where(c => c.UserId == userId).ToList();
+        }
+        public List<Comment> GetByMovieId(int movieId) {
+            return _comments.Where(c => c.MovieId == movieId).ToList();
+        }
+        public List<Comment> GetByUserIdAndMovieId(int userId, int movieId) {
+            return _comments.Where(c => c.UserId == userId && c.MovieId == movieId).ToList();
         }
 
         public void DeleteCommentById(int commentId)
