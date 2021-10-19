@@ -1,0 +1,12 @@
+
+<div class="pick-location-page">
+  <div class="map-container">
+    <h2>Movies By Location!</h2>
+    <p>Pick a location from the map and click on the submit button to visualise the most popular movies in that country!</p>
+    <div class="map-frame">
+      <div id="map"></div>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success" [disabled]="!lng&&!lat" (click)="onSubmit()">Submit</button>
+  </div>
+</div>

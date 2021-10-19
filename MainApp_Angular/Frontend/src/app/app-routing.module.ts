@@ -14,6 +14,7 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { PageUserComponent } from './routes/page-user/page-user.component';
 import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
+import { PickLocationComponent } from './routes/pick-location/pick-location.component';
 
 
 const routes: Routes = [
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: "signUp", component: PageUserComponent},
   { path: "HandleLogggedUser", component: HandleUserComponent},
   { path: "moviesByLocation", component : MoviesByLocationComponent},
+  { path: "pickLocation" , component : PickLocationComponent},
 ];
 
 @NgModule({

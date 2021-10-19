@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MoviesApiService } from '../../services/moviesapi.service';
 import { MovieApiInterface, ResultInterface } from '../../models/apiMovie.model';
-import { countryApiInterface } from '../../models/country.model';
+import { CountryApiInterface } from '../../models/country.model';
 import { CountryApiService } from '../../services/countryapi.service';
 
 @Component({
@@ -16,13 +16,15 @@ export class MoviesByLocationComponent implements OnInit {
 
   lng : number;
   lat : number;
-  country : countryApiInterface;
+  country : CountryApiInterface;
   movies : MovieApiInterface;
   results : ResultInterface[];
+  logDummy : boolean; // dummy for logged user
 
   constructor(private route: ActivatedRoute, private movieApiService:MoviesApiService, private countryApiService : CountryApiService) { }
 
   ngOnInit(): void {
+    this.logDummy = true;
     this.getLocationMovieListOnComponent();
   }
 
