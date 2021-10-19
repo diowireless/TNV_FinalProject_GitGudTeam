@@ -23,6 +23,7 @@ import { MoviesApiComponent } from './routes/movies-api/movies-api.component';
 import { PageUserComponent } from './routes/page-user/page-user.component';
 import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
+import { PickLocationComponent } from './routes/pick-location/pick-location.component';
 
 @NgModule({
   declarations: [
@@ -44,6 +45,7 @@ import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by
     PageUserComponent,
     HandleUserComponent,
     MoviesByLocationComponent,
+    PickLocationComponent,
   ],
   imports: [
     BrowserModule,

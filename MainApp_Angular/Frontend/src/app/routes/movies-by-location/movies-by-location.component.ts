@@ -19,10 +19,12 @@ export class MoviesByLocationComponent implements OnInit {
   country : countryApiInterface;
   movies : MovieApiInterface;
   results : ResultInterface[];
+  logDummy : boolean; // dummy for logged user
 
   constructor(private route: ActivatedRoute, private movieApiService:MoviesApiService, private countryApiService : CountryApiService) { }
 
   ngOnInit(): void {
+    this.logDummy = false;
     this.getLocationMovieListOnComponent();
   }
 
