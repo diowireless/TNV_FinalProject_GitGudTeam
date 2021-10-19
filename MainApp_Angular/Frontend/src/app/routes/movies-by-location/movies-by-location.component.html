@@ -9,7 +9,7 @@
         <th scope="col"></th>
         <th scope="col">Title</th>
         <th scope="col">Overview</th>
-        <th scope="col">Wishlist</th>
+        <th scope="col">Watchlist</th>
       </tr>
     </thead>
     <tbody>
@@ -17,7 +17,8 @@
         <td> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120></td>
         <td> {{entry.title}} ({{entry.release_date.substring(0,4)}})</td>
         <td>{{entry.overview}}</td>
-        <td class="tableSymbol"><i class="fas fa-plus" *ngIf="logDummy" ></i><i class="fas fa-ban" *ngIf="!logDummy" ></i></td>
+        <td class="tableSymbol"><span title="Add to your Watchlist."><i class="fas fa-plus" *ngIf="logDummy" ></i></span>
+          <span title="You must be logged in to add a movie to your Watchlist."><i class="fas fa-ban" *ngIf="!logDummy" ></i></span></td>
         <td></td>
       </tr>
     </tbody>
