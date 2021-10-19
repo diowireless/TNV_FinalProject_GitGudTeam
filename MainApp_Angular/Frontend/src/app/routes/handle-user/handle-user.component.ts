@@ -75,6 +75,7 @@ export class HandleUserComponent implements OnInit {
 
   logOut() {
     this.transporterService.userTransported = null;
+    this.transporterService.clearUserStorage();
     this.transporterService.notifyToLogin(false);
     this.router.navigate(['/welcome']);
   }
