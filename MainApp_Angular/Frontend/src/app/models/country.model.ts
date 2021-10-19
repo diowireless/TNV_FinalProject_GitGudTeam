@@ -1,4 +1,4 @@
-export interface countryApiInterface {
+export interface CountryApiInterface {
     countryName: string,
     countryCode: string
 }

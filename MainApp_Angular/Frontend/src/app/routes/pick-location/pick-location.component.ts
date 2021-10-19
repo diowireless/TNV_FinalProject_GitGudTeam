@@ -33,7 +33,7 @@ export class PickLocationComponent implements AfterViewInit {
 
     this.popup
       .setLatLng(e.latlng)
-      .setContent("You clicked the map at latitude: " + e.latlng.lat + " - lng: " + e.latlng.lng)
+      .setContent("You clicked the map at latitude: " + e.latlng.lat + " - longitude: " + e.latlng.lng)
       .openOn(this.map);
 
     this.lng = e.latlng.lng;
