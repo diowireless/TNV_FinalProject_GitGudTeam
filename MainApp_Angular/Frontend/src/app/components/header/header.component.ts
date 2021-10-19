@@ -16,7 +16,12 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.transporterService.getHeader(this);
-    this.logged = false;
+    this.transporterService.getUserStorage();
+    if(this.transporterService.userTransported!=null) {
+      this.user = this.transporterService.userTransported;
+      this.logged = true;
+    }
+    else this.logged = false;
   }
 
   changeStateOfLogged(logged:boolean) {
