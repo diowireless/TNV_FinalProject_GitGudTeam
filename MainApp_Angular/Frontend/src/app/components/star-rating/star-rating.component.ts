@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { RatingService } from 'src/app/services/rating.service';
+import { TransporterService } from 'src/app/services/transporter.service';
+import { UserData } from '../../models/UserData';
 
 @Component({
   selector: 'app-star-rating',
@@ -8,13 +10,15 @@ import { RatingService } from 'src/app/services/rating.service';
 })
 export class StarRatingComponent implements OnInit {
 
-  constructor(private ratingService: RatingService) { }
+  constructor(private ratingService: RatingService, private transporterService : TransporterService) { }
+
+  user: UserData
 
   rating: number
 @Input("movie_id") movie_id : number
-@Input("user_id") user_id : number  // Gianfranco mi devi esporre l' id dell' utente quando si logga perche cosi lo associo qui
 
   ngOnInit(): void {
+    this.user = this.transporterService.userTransported
   }
 
   updateRating (n: number) {
@@ -24,11 +28,11 @@ export class StarRatingComponent implements OnInit {
   }
 
   postRating(){
-   if(!this.user_id){
+   if(!this.user.id){
      alert("Per votare è necessario effettuare il LogIn!")
      return
    }
-    this.ratingService.addRating(this.movie_id, this.user_id, this.rating).subscribe(
+    this.ratingService.addRating(this.movie_id, this.user.id, this.rating).subscribe(
       response => {console.log(response)
         alert("Voto inviato con successo!")
     }, error => {
