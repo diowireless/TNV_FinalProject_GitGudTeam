@@ -12,8 +12,13 @@ export class RatingService {
 
   constructor(private http: HttpClient) { }
 
+  public ratingData : MovieRatingInterface []
+
+
   getRating() {
-    return this.http.get<MovieRatingInterface>(this.baseURL + '/get');
+   this.http.get<Object>(this.baseURL + '/get').subscribe(
+     response => this.ratingData = response["data"]
+   );
   }
 
   addRating(movie_id, user_id, movie_rating) {
@@ -33,4 +38,11 @@ export class RatingService {
     }
     return this.http.put<MovieRatingInterface>(this.baseURL + '', body)
   }
+
+  getMyRating(id: number){
+    ///assicurarsi che ratingDAta non sia nul
+    return this.ratingData.filter(element => element.user_id === id)
+  }
 }
+
+///implementare la put

@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { RatingService } from './services/rating.service';
 
 @Component({
   selector: 'app-root',
@@ -6,6 +7,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+
+  constructor(private ratingService: RatingService){
+ this.ratingService.getRating();
+}
 
   title = 'frontend';
 }
