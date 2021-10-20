@@ -17,15 +17,15 @@ export class CommentsapiService {
   }
   // get call for all comments of a movie
   getCommentsByMovieId(movie_id) {
-    return this.http.get<CommentApiInterface>(this.baseURL+"?movie_id="+movie_id);
+    return this.http.get<CommentApiInterface>(this.baseURL+"?movie-id="+movie_id);
   }
   // get call for all comments of a user
   getCommentsByUserId(user_id) {
-    return this.http.get<CommentApiInterface>(this.baseURL+"?user_id="+user_id);
+    return this.http.get<CommentApiInterface>(this.baseURL+"?user-id="+user_id);
   }
   // get call for comment of a movie by a specific user
   getCommentsByUserAndMovieId(user_id, movie_id) {
-    return this.http.get<CommentApiInterface>(this.baseURL+"?user_id="+user_id+"?movie_id="+movie_id);
+    return this.http.get<CommentApiInterface>(this.baseURL+"?user-id="+user_id+"&movie-id="+movie_id);
   }
   // post call to add a new comment
   postComment(data: CommentApiInterface) {

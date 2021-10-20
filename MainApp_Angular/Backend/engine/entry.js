@@ -1,4 +1,5 @@
 const DataEntry = require('../models/index').DataEntry;
+const WatchlistEntry = require('../models/index').WatchlistEntry;
 
 const getEntry = (req, res) => {
   DataEntry.findAll({})
@@ -128,10 +129,110 @@ const deleteEntry = (req, res) => {
     })
 };
 
+const getWatchlist = (req, res) => {
+  WatchlistEntry.findAll({})
+    .then(entry => {
+      return res.status(200).send(entry)
+    })
+    .catch(err => {
+      return res.status(500).send(err)
+    });
+};
+
+const getUserWatchlist = (req, res) => {
+  const userId = req.params.u_id;
+
+  WatchlistEntry.findAll({
+    where: {
+      user_id: userId,
+    }
+  })
+    .then(entry => {
+      if (!entry) {
+        return res.status(404).send({
+          error: true,
+          message: 'The requested data does not exist.',
+          entryId
+        })
+      }
+
+      return res.status(200).send(entry);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    })
+};
+
+const getWatchlistEntryById = (req, res) => {
+  const userId = req.params.u_id;
+  const movieId = req.params.m_id;
+
+  WatchlistEntry.findOne({
+    where: {
+      user_id: userId,
+      movie_id: movieId,
+    }
+  })
+    .then(entry => {
+      if (!entry) {
+        return res.status(404).send({
+          error: true,
+          message: 'The requested data does not exist.',
+          entryId
+        })
+      }
+
+      return res.status(200).send(entry);
+    })
+    .catch(err => {
+      return res.status(500).send(err);
+    })
+};
+
+const createWatchlistEntry = (req, res) => {
+  const {user_id, movie_id} = req.body;
+
+  WatchlistEntry.create({
+    user_id : user_id,
+    movie_id : movie_id,
+  })
+    .then(entry => {
+      return res.status(201).send(entry);
+    })
+    .catch(error => {
+      return res.status(500).send(error);
+    });
+};
+
+const deleteWatchlistEntry = (req, res) => {
+  const userId = req.params.u_id;
+  const movieId = req.params.m_id;
+
+  WatchlistEntry.destroy({
+    where: {
+      user_id : userId,
+      movie_id : movieId,
+    }
+  })
+    .then( otherName => {
+      console.log("res: ", otherName)
+      return res.status(204).send({otherName});
+    })
+    .catch(error => {
+      console.log("errore: ", error)
+      return res.status(500).send(error);
+    })
+};
+
 module.exports = {
   getEntry,
   getEntryById,
   editEntry,
   deleteEntry,
-  createEntry
+  createEntry,
+  getWatchlist,
+  getUserWatchlist,
+  getWatchlistEntryById,
+  createWatchlistEntry,
+  deleteWatchlistEntry
 };

@@ -1,5 +1,7 @@
 'use strict';
 
+const { sequelize } = require(".");
+
 module.exports = (sequelize, DataType) => {
   let DataEntry = sequelize.define('DataEntry', {
     // id missing because Sequelize adds it by default

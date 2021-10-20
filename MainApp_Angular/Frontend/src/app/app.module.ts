@@ -27,6 +27,8 @@ import { PageUserComponent } from './routes/page-user/page-user.component';
 import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
 import { PickLocationComponent } from './routes/pick-location/pick-location.component';
+import { WatchlistComponent } from './routes/watchlist/watchlist.component';
+import { CommentComponent } from './components/comment/comment.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +53,8 @@ import { PickLocationComponent } from './routes/pick-location/pick-location.comp
     HandleUserComponent,
     MoviesByLocationComponent,
     PickLocationComponent,
+    WatchlistComponent,
+    CommentComponent,
   ],
   imports: [
     BrowserModule,
