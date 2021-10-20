@@ -40,7 +40,14 @@ export class StarRatingComponent implements OnInit {
       return
     }
     if(this.currentRating){
-      ///put
+      this.ratingService.editRating(this.movie_id, this.user.id, this.rating).subscribe(
+        response => {
+          console.log(response)
+          alert("Voto modificato con successo!")
+        }, error => {
+          console.log(error)
+          alert("Voto non modificato!")
+        })
     }else{
       this.ratingService.addRating(this.movie_id, this.user.id, this.rating).subscribe(
         response => {
