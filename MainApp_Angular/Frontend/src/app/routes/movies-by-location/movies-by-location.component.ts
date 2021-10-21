@@ -70,7 +70,7 @@ export class MoviesByLocationComponent implements OnInit {
       response => {
         console.log(response);
       },
-      error => console.log(error)
+      error => window.alert("Movie already in watchlist")
     );
   }
 
