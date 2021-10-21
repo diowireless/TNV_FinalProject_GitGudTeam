@@ -8,7 +8,7 @@
   <table class="table">
     <tbody>
       <tr>
-        <td rowspan="4"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + results.poster_path}} " width=120></td>
+        <td rowspan="4" width="70px"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + results.poster_path}} " width=120></td>
         <th>Genres:</th>
         <td>{{ genres }}</td>
       </tr>
@@ -25,29 +25,30 @@
         <td><app-star-rating [movie_id]="movie_id"></app-star-rating></td>
       </tr>
       <tr>
-        <td colspan="3">Overview: {{results.overview}}</td>
+        <th>Overview:</th><td colspan="3"> {{results.overview}}</td>
       </tr>
       <ng-container *ngIf="comments != null">
         <tr *ngFor="let comment of comments">
           <td colspan="3">Comment by user {{comment.userId}}:<br>{{comment.body}}</td>
         </tr>
       </ng-container>
-      <tr colspan="3">
+      <tr>
+        <td colspan="3">
+          <div class="container">
+            <form class="" (ngSubmit)="onSubmit(form)" #form="ngForm">
+              <div class="form-group row">
+                <label for="name" class="col-sm-2 col-form-label">Leave a comment:</label>
+                <div class="col-sm-10">
+                    <textarea type="text" class="form-control" id="newComment" required ngModel name="newComment"></textarea>
+                </div>
 
-        <div class="container">
-          <form class="" (ngSubmit)="onSubmit(form)" #form="ngForm">
-            <div class="form-group row">
-              <label for="name" class="col-sm-2 col-form-label">Leave a comment:</label>
-              <div class="col-sm-10">
-                  <textarea type="text" class="form-control" id="newComment" required ngModel name="newComment"></textarea>
+                <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>
               </div>
-
-              <button type="submit" [disabled]="!form.valid" class="btn btn-success">Submit</button>
-            </div>
-          </form>
-        </div>
-
+            </form>
+          </div>
+        </td>
       </tr>
     </tbody>
   </table>
+  <br><br><br><br>
 </div>

@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of results"  (click)="gotoMoviePage(entry.id)">
+      <tr *ngFor="let entry of results"  (click)="gotoMoviePage(entry.id)" class="pointer">
         <th scope="row"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120>
           <br>{{entry.title}} ({{entry.release_date.substring(0,4)}})</th>
         <td>{{entry.overview}} </td>
