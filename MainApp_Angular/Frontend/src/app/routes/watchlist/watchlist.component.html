@@ -6,18 +6,15 @@
   <table class="table">
     <thead class="thead-dark">
       <tr>
-        <th scope="col"></th>
         <th scope="col">Title</th>
-        <th scope="col">Comment</th>
-        <th scope="col">Rating</th>
+        <th scope="col">Overview</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of results">
-        <th scope="row"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120></th>
-        <td>{{entry.title}} ({{entry.release_date.substring(0,4)}})</td>
-        <td><app-comment [movie_id]="entry.id"></app-comment></td>
-        <td><app-star-rating [movie_id]="entry.id"></app-star-rating></td>
+      <tr *ngFor="let entry of results"  (click)="gotoMoviePage(entry.id)">
+        <th scope="row"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120>
+          <br>{{entry.title}} ({{entry.release_date.substring(0,4)}})</th>
+        <td>{{entry.overview}} </td>
       </tr>
     </tbody>
   </table>

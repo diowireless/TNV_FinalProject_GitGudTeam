@@ -19,7 +19,6 @@
         <td>{{entry.overview}}</td>
         <td class="tableSymbol"><span title="Add to your Watchlist."><a class="pointer" (click)="addToWatchlist(entry.id)"><i class="fas fa-plus" *ngIf="user"></i></a></span>
           <span title="You must be logged in to add a movie to your Watchlist."><i class="fas fa-ban" *ngIf="!user" ></i></span></td>
-        <td></td>
       </tr>
     </tbody>
   </table>

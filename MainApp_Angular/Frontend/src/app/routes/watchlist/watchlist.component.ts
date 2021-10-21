@@ -58,4 +58,8 @@ export class WatchlistComponent implements OnInit {
     )
   }
 
+  gotoMoviePage(id) {
+    this.router.navigate(['/movie-page'], {queryParams: {movie : id}});
+  }
+
 }

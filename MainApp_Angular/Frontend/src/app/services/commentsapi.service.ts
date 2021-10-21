@@ -17,7 +17,7 @@ export class CommentsapiService {
   }
   // get call for all comments of a movie
   getCommentsByMovieId(movie_id) {
-    return this.http.get<CommentApiInterface>(this.baseURL+"?movie-id="+movie_id);
+    return this.http.get<Array<CommentApiInterface>>(this.baseURL+"?movie-id="+movie_id);
   }
   // get call for all comments of a user
   getCommentsByUserId(user_id) {

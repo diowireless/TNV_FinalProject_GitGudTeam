@@ -14,5 +14,10 @@ export interface ResultInterface {
     overview: string,
     vote_average: number,
     release_date: string,
-    genre_ids: number[]
+    genres: genreInterface[]
+}
+
+export interface genreInterface {
+  id : number,
+  name : string,
 }
