@@ -46,7 +46,7 @@ export class LoginComponent implements OnInit {
                                                       //lo stato dellla proprietà logged in HeaderComponent.
           this.transporterService.setUserStorage(this.user);//tramite questo metodo di transporterService
                                                             //viene salvato l'user nel local storage
-          this.router.navigate(['/dashboard']);//destinazione
+          this.router.navigate(['/pick-location']);//destinazione
         }
         else
           this.datiValidi = false;
