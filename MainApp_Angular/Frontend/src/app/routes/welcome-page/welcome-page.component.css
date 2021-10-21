@@ -6,7 +6,7 @@
     font-family: "DK Lemon Yellow Sun";
     font-weight: bold;
   }
-  
+
   .fishball {
     content: url("../../../assets/img/welcomeFishball.gif");
     width: 50%;
@@ -14,17 +14,21 @@
     z-index: 2;
     margin-top: -20px;
   }
-  
+
   h1 {
     font-size: 65px;
     z-index: 1;
   }
-  
+
   p {
     margin-top: 7%;
     font-size: 20px;
   }
-  
+
   a{
     color: black;
+  }
+
+  .pointer {
+    cursor: pointer;
   }
