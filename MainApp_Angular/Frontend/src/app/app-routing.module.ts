@@ -15,6 +15,8 @@ import { PageUserComponent } from './routes/page-user/page-user.component';
 import { HandleUserComponent } from './routes/handle-user/handle-user.component';
 import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by-location.component';
 import { PickLocationComponent } from './routes/pick-location/pick-location.component';
+import { WatchlistComponent } from './routes/watchlist/watchlist.component';
+import { MoviePageComponent } from './routes/movie-page/movie-page.component';
 
 
 const routes: Routes = [
@@ -25,14 +27,15 @@ const routes: Routes = [
   { path: "details/:id", component : DetailsComponent },
   { path: "edit/:id", component: EditComponent },
   { path: "login", component: LoginPageComponent},
-  { path: "filterByGenre", component: FilterByGenreComponent},
-  { path: "sortByDate", component:SortByDateComponent},
-  { path: "moviesApi", component: MoviesApiComponent},
-  { path: "movieRating", component:MovieRatingComponent},
-  { path: "signUp", component: PageUserComponent},
-  { path: "HandleLogggedUser", component: HandleUserComponent},
-  { path: "moviesByLocation", component : MoviesByLocationComponent},
-  { path: "pickLocation" , component : PickLocationComponent},
+  { path: "filter-by-genre", component: FilterByGenreComponent},
+  { path: "sort-by-date", component:SortByDateComponent},
+  { path: "movies-api", component: MoviesApiComponent},
+  { path: "sign-up", component: PageUserComponent},
+  { path: "handle-logged-user", component: HandleUserComponent},
+  { path: "movies-by-location", component : MoviesByLocationComponent},
+  { path: "pick-location" , component : PickLocationComponent},
+  { path: "watchlist" , component : WatchlistComponent},
+  { path: "movie-page" , component : MoviePageComponent},
 ];
 
 @NgModule({

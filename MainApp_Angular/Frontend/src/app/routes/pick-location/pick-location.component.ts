@@ -26,7 +26,7 @@ export class PickLocationComponent implements AfterViewInit {
 
   onSubmit() : void {
     console.log("lng: "+this.lng+" - lat: "+this.lat);
-    this.router.navigate(['/moviesByLocation'], { queryParams: { lng: this.lng, lat : this.lat } });
+    this.router.navigate(['/movies-by-location'], { queryParams: { lng: this.lng, lat : this.lat } });
   }
 
   onMapClick(e) {

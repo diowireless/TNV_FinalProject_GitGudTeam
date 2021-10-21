@@ -4,6 +4,10 @@ import { MoviesApiService } from '../../services/moviesapi.service';
 import { MovieApiInterface, ResultInterface } from '../../models/apiMovie.model';
 import { CountryApiInterface } from '../../models/country.model';
 import { CountryApiService } from '../../services/countryapi.service';
+import { WatchlistService } from '../../services/watchlist.service';
+import { unescapeIdentifier } from '@angular/compiler';
+import { UserData } from '../../models/UserData';
+import { TransporterService } from 'src/app/services/transporter.service';
 
 @Component({
   selector: 'app-movies-by-location',
@@ -16,15 +20,19 @@ export class MoviesByLocationComponent implements OnInit {
 
   lng : number;
   lat : number;
+  user : UserData;
   country : CountryApiInterface;
   movies : MovieApiInterface;
   results : ResultInterface[];
-  logDummy : boolean; // dummy for logged user
 
-  constructor(private route: ActivatedRoute, private movieApiService:MoviesApiService, private countryApiService : CountryApiService) { }
+  constructor(private route: ActivatedRoute,
+              private movieApiService:MoviesApiService,
+              private countryApiService : CountryApiService,
+              private WatchlistService : WatchlistService,
+              private transporterService : TransporterService) { }
 
   ngOnInit(): void {
-    this.logDummy = true;
+    this.user = this.transporterService.userTransported;
     this.getLocationMovieListOnComponent();
   }
 
@@ -55,6 +63,15 @@ export class MoviesByLocationComponent implements OnInit {
       },
       error => console.log(error)
     )
+  }
+
+  addToWatchlist(movieId) {
+    this.WatchlistService.addEntry({user_id: this.user.id, movie_id: movieId}).subscribe(
+      response => {
+        console.log(response);
+      },
+      error => console.log(error)
+    );
   }
 
 }

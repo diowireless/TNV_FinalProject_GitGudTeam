@@ -14,19 +14,13 @@
               </a>
             </li>
             <li>
-              <a [routerLink]='["/moviesApi"]' class="nav-link">
+              <a [routerLink]='["/pick-location"]' class="nav-link">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                Movies
+                Find Movies
               </a>
             </li>
             <li>
-              <a [routerLink]='["/welcome"]' class="nav-link">
-                <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
-                TV Series
-              </a>
-            </li>
-            <li>
-              <a [routerLink]='["/welcome"]' class="nav-link">
+              <a [routerLink]='["/watchlist"]' class="nav-link">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
                 Watchlist
               </a>
@@ -38,17 +32,17 @@
             </a>
             </li>
             <li *ngIf="logged == true">
-              <a [routerLink]='["/HandleLogggedUser"]' class="nav-link">
+              <a [routerLink]='["/handle-logged-user"]' class="nav-link">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
                 {{user.firstName}}
               </a>
             </li>
-            <li>
+            <!--li>
               <a [routerLink]="['/filterByGenre']" class="nav-link">
                 <svg class="bi d-block mx-auto mb-1" width="24" height="24"></svg>
                 <i class="fas fa-filter fa-1.5x bi d-block mx-auto mb-1" width="24" height="24"></i>
               </a>
-            </li>
+            </li!-->
           </ul>
         </div>
       </div>

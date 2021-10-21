@@ -13,13 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="pointer" *ngFor="let entry of results">
+      <tr *ngFor="let entry of results">
         <td> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120></td>
         <td> {{entry.title}} ({{entry.release_date.substring(0,4)}})</td>
         <td>{{entry.overview}}</td>
-        <td class="tableSymbol"><span title="Add to your Watchlist."><i class="fas fa-plus" *ngIf="logDummy" ></i></span>
-          <span title="You must be logged in to add a movie to your Watchlist."><i class="fas fa-ban" *ngIf="!logDummy" ></i></span></td>
-        <td></td>
+        <td class="tableSymbol"><span title="Add to your Watchlist."><a class="pointer" (click)="addToWatchlist(entry.id)"><i class="fas fa-plus" *ngIf="user"></i></a></span>
+          <span title="You must be logged in to add a movie to your Watchlist."><i class="fas fa-ban" *ngIf="!user" ></i></span></td>
       </tr>
     </tbody>
   </table>

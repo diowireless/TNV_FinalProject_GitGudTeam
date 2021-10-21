@@ -12,8 +12,20 @@ module.exports = (app) => {
   app.put(`${dataPath}/:id`, DataEngine.editEntry);
   app.delete(`${dataPath}/:id`, DataEngine.deleteEntry);
 
+  const dataPathWatchlist = '/watchlist';
+  
+  /******* WATCHLIST REST APIs *******/
+  app.get(dataPathWatchlist, DataEngine.getWatchlist);
+  app.get(`${dataPathWatchlist}/:u_id`, DataEngine.getUserWatchlist);
+  app.get(`${dataPathWatchlist}/:u_id/:m_id`, DataEngine.getWatchlistEntryById);
+  app.post(dataPathWatchlist, DataEngine.createWatchlistEntry);
+  app.delete(`${dataPathWatchlist}/:u_id/:m_id`, DataEngine.deleteWatchlistEntry);
+
   /********** ERROR HANDLER **********/
   app.use(ErrorsEngine.page404);
   app.use(ErrorsEngine.pageError);
+
+  
+
 
 };

@@ -1,4 +1,4 @@
-export interface MovieApiInterface{
+export interface MovieApiInterface {
     average_rating: number,
     backdrop_path : string,
     description: string,
@@ -7,12 +7,17 @@ export interface MovieApiInterface{
     results: ResultInterface []
 }
 
-export interface ResultInterface{
+export interface ResultInterface {
     id : number,
     title : string,
     poster_path: string,
     overview: string,
     vote_average: number,
     release_date: string,
-    genre_ids: number[]
+    genres: genreInterface[]
+}
+
+export interface genreInterface {
+  id : number,
+  name : string,
 }
