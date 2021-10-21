@@ -40,7 +40,6 @@ export class RatingService {
   }
 
   getMyRating(id: number){
-    ///assicurarsi che ratingDAta non sia nul
     return this.ratingData.filter(element => element.user_id === id)
   }
 }
