@@ -39,8 +39,8 @@ namespace FilmComments.RestAPIs
             });
             services.AddSingleton<CommentService>();
             //services.AddSingleton<IStorageService, InMemoryStorageService>();
-            //services.AddSingleton<IStorageService, MySqlStorageService>();
-            services.AddTransient<IStorageService, MySqlStorageService>();
+            services.AddSingleton<IStorageService, MySqlStorageService>();
+            //services.AddTransient<IStorageService, MySqlStorageService>();
 
             services.AddControllers();
             /*services.AddSwaggerGen(c =>
