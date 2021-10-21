@@ -3,6 +3,7 @@ package com.thenetvalue.subTutorial1.service;
 import com.thenetvalue.subTutorial1.dao.UserRepositoryDAO;
 import com.thenetvalue.subTutorial1.model.User;
 
+import com.thenetvalue.subTutorial1.sequrity.Crypto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
@@ -27,12 +28,13 @@ public class UserService  {
 
     //implementazioni dei metodi crud----------------------------------------------------------------------------------
 
-    //restituisce una stringa che indica il sucesso o meno dell'inserimento dell'utente user
+    //restituisce l'utente salvato se l'inserimento è andato a buon fine altrimenti null
     public User addUser(User user) {
         if(user==null || user.equals("")) 
             return null;
         User result=userDao.findByEmail(user.getEmail());
         if(result==null ) {
+            user.setPassword(Crypto.encrypt(user.getPassword()));
             userDao.save(user);
         }
         return result;
@@ -40,12 +42,12 @@ public class UserService  {
 
     //restituiece l'utente User solo se la username e la passrword inviate sono corrette.
     public User checkLogin(String email, String password) {
-
+        String passwordCripted = Crypto.encrypt(password);
         System.out.println("chiamato:"+email+":"+password);
         User result= userDao.findByEmail(email);
 
         if(result!=null)
-            if(result.getPassword().equals(password))
+            if(result.getPassword().equals(passwordCripted))
                 return result;
 
         return null;
@@ -64,6 +66,7 @@ public class UserService  {
 
     //Modifica i dati dell'utente con id uguale a quello passato come parametro
     public User updateUser(int id, User user) {
+        user.setPassword(Crypto.encrypt(user.getPassword()));
         User result = userDao.findByEmail(user.getEmail());
             if(result != null && result.getId()!=id)
                 return null;

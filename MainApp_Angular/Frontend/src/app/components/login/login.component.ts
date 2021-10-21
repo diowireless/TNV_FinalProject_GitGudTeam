@@ -30,11 +30,16 @@ export class LoginComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    if(this.transporterService.header.logged==true)
+      this.router.navigate(['/welcome']);
+
     this.transporterService.logged = false;
   }
 
   submitButton(){
     if(this.emailInput != null && this.passwordInput !=null){
+      this.transporterService.setDecodedPasswordLocalStorage(this.passwordInput);
       console.log("submitButton");
       this.checkLogin(this.emailInput, this.passwordInput).subscribe(resultUser =>{
         this.user = resultUser
