@@ -30,6 +30,7 @@ import { PickLocationComponent } from './routes/pick-location/pick-location.comp
 import { WatchlistComponent } from './routes/watchlist/watchlist.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { MoviePageComponent } from './routes/movie-page/movie-page.component';
+import { AverageRatingComponent } from './components/average-rating/average-rating.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { MoviePageComponent } from './routes/movie-page/movie-page.component';
     WatchlistComponent,
     CommentComponent,
     MoviePageComponent,
+    AverageRatingComponent,
   ],
   imports: [
     BrowserModule,

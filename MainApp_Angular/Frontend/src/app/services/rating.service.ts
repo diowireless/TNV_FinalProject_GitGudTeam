@@ -15,10 +15,8 @@ export class RatingService {
   public ratingData : MovieRatingInterface []
 
 
-  getRating() {
-   this.http.get<Object>(this.baseURL + '/get').subscribe(
-     response => this.ratingData = response["data"]
-   );
+  getAll() {
+    return this.http.get<Object>(this.baseURL);
   }
 
   addRating(movie_id, user_id, movie_rating) {
@@ -30,17 +28,21 @@ export class RatingService {
     return this.http.post<MovieRatingInterface>(this.baseURL + '', body)
   }
 
-  editRating(movie_id, user_id, movie_rating) {
+  editRating(rating_id, movie_id, user_id, movie_rating) {
     const body = {
       "movie_id": movie_id,
       "user_id": user_id,
       "movie_rating": movie_rating
     }
-    return this.http.put<MovieRatingInterface>(this.baseURL + '', body)
+    return this.http.put<MovieRatingInterface>(this.baseURL + '/' + rating_id, body)
   }
 
-  getMyRating(id: number){
-    return this.ratingData.filter(element => element.user_id === id)
+  getByMovieId(movie_id) {
+    return this.http.get<Object>(this.baseURL + '/movie_id/' + movie_id);
+  }
+
+  getRatingByUserAndMovieId(user_id : number, movie_id : number) {
+    return this.http.get<MovieRatingInterface>(this.baseURL + '/movie_id/' + movie_id + '/user_id/' + user_id);
   }
 }
 

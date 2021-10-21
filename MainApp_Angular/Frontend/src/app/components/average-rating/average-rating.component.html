@@ -1,0 +1,10 @@
+
+<div class="container">
+  <div class="rating">
+    <label *ngFor="let item of [1,2,3,4,5]" class="fas fa-star fa-xs pointer"
+           [style]="avg_rating >= item ? 'color: gold;' : ' '  "
+    ></label> ({{avg_rating}})
+  </div>
+</div>
+
+

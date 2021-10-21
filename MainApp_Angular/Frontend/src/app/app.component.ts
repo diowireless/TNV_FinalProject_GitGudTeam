@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { RatingService } from './services/rating.service';
 
 @Component({
   selector: 'app-root',
@@ -8,8 +7,7 @@ import { RatingService } from './services/rating.service';
 })
 export class AppComponent {
 
-  constructor(private ratingService: RatingService){
- this.ratingService.getRating();
+  constructor(){
 }
 
   title = 'frontend';
