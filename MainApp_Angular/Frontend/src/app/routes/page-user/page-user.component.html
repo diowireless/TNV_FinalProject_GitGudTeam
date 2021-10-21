@@ -1,6 +1,8 @@
 <div class="col-md-4 offset-md-3">
-  <h1>Sign Up</h1>
 <form (ngSubmit)="onSubmit()">
+  <div class="form-group">
+  <tr><h1>Sign Up</h1></tr>
+  </div>
   <label *ngIf="emailValid==false"><small style="color: red;">{{message}}</small></label>
   <tr style="text-align: center; align-tracks: center;">
   <th>
@@ -42,8 +44,8 @@
    </th>
    </tr>
    <tr>
-   <th><button  type="reset" formnovalidate>Reset</button></th>
-   <th><button *ngIf="checkForm()" type="submit" formnovalidate>Send</button></th>
+   <th><button  type="reset" id="reset">Reset</button></th>
+   <th><button *ngIf="checkForm()" type="submit" id="send">Send</button></th>
    <th><button  type="button" (click)="goBack()" formnovalidate>Back</button></th>
    </tr>
 </form>

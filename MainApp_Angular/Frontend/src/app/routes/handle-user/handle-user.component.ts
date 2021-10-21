@@ -22,6 +22,7 @@ export class HandleUserComponent implements OnInit {
   success :string = "Modifiche al profilo eseguite.";
   fail : string = "La nuova Mail inserita è già presente nel database";
   deleteMessage : string;
+  fakePassword = "";
   emailValid : boolean;
   updatesuccess : boolean;
   updatefail :boolean;
@@ -31,17 +32,20 @@ export class HandleUserComponent implements OnInit {
     this.updatesuccess = false;
     this.emailValid = true;
     this.user = this.transporterService.userTransported;
+    this.user.password = this.transporterService.getDecodedPasswordStorage();
   }
 
   onSubmit() {
     this.updatefail = false;
     this.updatesuccess = false;
     let userupdated:UserData;
+    this.transporterService.setDecodedPasswordLocalStorage(this.user.password);
     this.userService.updateUser(this.user).subscribe(
       result =>{
         userupdated = result;
         if(userupdated!= null) {
           this.user = userupdated;
+          this.user.password =  this.user.password = this.transporterService.getDecodedPasswordStorage();
           this.updatesuccess = true;
 
         }
@@ -60,8 +64,6 @@ export class HandleUserComponent implements OnInit {
       this.user.firstName=="" ||
       this.user.lastName==null ||
       this.user.lastName=="" ||
-      this.user.password==null ||
-      this.user.password=="" ||
       this.user.username==null ||
       this.user.username=="")
         return false;
@@ -76,6 +78,7 @@ export class HandleUserComponent implements OnInit {
   logOut() {
     this.transporterService.userTransported = null;
     this.transporterService.clearUserStorage();
+    this.transporterService.clearDecodedPasswordStorage();
     this.transporterService.notifyToLogin(false);
     this.router.navigate(['/welcome']);
   }

@@ -23,10 +23,10 @@ export class TransporterService {
   getHeader(header:HeaderComponent):void {
     this.header = header;
   }
-  //#Header fine
+  //#Header END
 
-  //#LocalStorage
-  //metodi per il local storage
+  //#UserLocalStorage
+  //metodi per il local storage dello user
   setUserStorage(userStorage : UserData) {
     const jSonUserStorage = JSON.stringify(userStorage);
     localStorage.setItem('user', jSonUserStorage);
@@ -39,5 +39,24 @@ export class TransporterService {
   clearUserStorage() {
     localStorage.removeItem('user');
   }
+  //#LocalStorageUser END
+
+  //#DecoedPasswordLocalStorage
+  //metodi per il local storage della password in chiaro
+  setDecodedPasswordLocalStorage(decodedPassword : String) {
+    const jSonUserStorage = JSON.stringify(decodedPassword);
+    localStorage.setItem('decodedPassword', jSonUserStorage);
+  }
+
+  getDecodedPasswordStorage():string {
+    return JSON.parse(localStorage.getItem('decodedPassword'));
+  }
+
+  clearDecodedPasswordStorage() {
+    localStorage.removeItem('Decoded');
+  }
+  //#DecodedPasswordLocalStorage END
+
+
 
 }
