@@ -29,7 +29,7 @@
       </tr>
       <ng-container *ngIf="comments != null">
         <tr *ngFor="let comment of comments">
-          <td colspan="3">Comment by user {{userMap.get(comment.userId)}}:<br>{{comment.body}}</td>
+          <td colspan="3">Comment by <span class="username">{{userMap.get(comment.userId)}}</span>:<br>{{comment.body}}</td>
         </tr>
       </ng-container>
       <tr>
