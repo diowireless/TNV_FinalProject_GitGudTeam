@@ -36,26 +36,26 @@ export class StarRatingComponent implements OnInit {
 
   postRating() {
     if (!this.user.id) {
-      alert("Per votare è necessario effettuare il LogIn!")
+      alert("SignUp to vote!")
       return
     }
     if(this.currentRating){
       this.ratingService.editRating(this.movie_id, this.user.id, this.rating).subscribe(
         response => {
           console.log(response)
-          alert("Voto modificato con successo!")
+          alert("Update rating state: Success!")
         }, error => {
           console.log(error)
-          alert("Voto non modificato!")
+          alert("Update rating state: Failed!")
         })
     }else{
       this.ratingService.addRating(this.movie_id, this.user.id, this.rating).subscribe(
         response => {
           console.log(response)
-          alert("Voto inviato con successo!")
+          alert("Thanks for your vote!")
         }, error => {
           console.log(error)
-          alert("Voto non inviato correttamente!")
+          alert("Error - Try Again!")
         })
     }
 

@@ -17,6 +17,7 @@ import { MoviesByLocationComponent } from './routes/movies-by-location/movies-by
 import { PickLocationComponent } from './routes/pick-location/pick-location.component';
 import { WatchlistComponent } from './routes/watchlist/watchlist.component';
 import { MoviePageComponent } from './routes/movie-page/movie-page.component';
+import { AboutUsComponent } from './routes/about-us/about-us.component';
 
 
 const routes: Routes = [
@@ -36,6 +37,7 @@ const routes: Routes = [
   { path: "pick-location" , component : PickLocationComponent},
   { path: "watchlist" , component : WatchlistComponent},
   { path: "movie-page" , component : MoviePageComponent},
+  { path: "about-us", component: AboutUsComponent}
 ];
 
 @NgModule({
