@@ -23,6 +23,10 @@ constructor(private http:HttpClient) { }
     return this.http.get<Array<UserData>>(`${this.urlBase}`+"/");
   }
 
+  getUsernameById(id : number) {
+    return this.http.get<UserData>(`${this.urlBase}`+"/"+id);
+  }
+
   postUser(user:UserData):Observable<Object>{
     return this.http.post<UserData>(`${this.urlBase}`+"/", {
       "username":user.username,

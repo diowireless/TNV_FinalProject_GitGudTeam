@@ -7,6 +7,8 @@ import { CommentsapiService } from '../../services/commentsapi.service';
 import { UserData } from '../../models/UserData';
 import { TransporterService } from 'src/app/services/transporter.service';
 import { FormGroup } from '@angular/forms';
+import { map } from 'leaflet';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-movie-page',
@@ -21,14 +23,17 @@ export class MoviePageComponent implements OnInit {
   movie_id : number;
   genres : string;
   newComment: FormGroup;
+  userMap : Map<number, string>;
 
   constructor(private route: ActivatedRoute,
               private transporterService:TransporterService,
               private movieApiService : MoviesApiService,
-              private commentApiService : CommentsapiService) { }
+              private commentApiService : CommentsapiService,
+              private userService : UserService) { }
 
   ngOnInit(): void {
     this.user = this.transporterService.userTransported;
+    this.userMap = new Map();
     this.getMovieId();
   }
 
@@ -52,6 +57,10 @@ export class MoviePageComponent implements OnInit {
   loadMovieComments() {
     this.commentApiService.getCommentsByMovieId(this.movie_id).subscribe( response => {
       this.comments = response;
+      this.comments.forEach(element => {
+        if(!this.userMap.has(element.userId))
+          this.findUsernameById(element.userId);
+      })
     })
   }
 
@@ -65,7 +74,16 @@ export class MoviePageComponent implements OnInit {
     console.log(form.form.value)
     this.commentApiService.postComment(newComment).subscribe( response => {
       console.log(response);
+      window.location.reload();
     } ,
+    error => console.log(error)
+    )
+  }
+
+  findUsernameById(id) {
+    this.userService.getUsernameById(id).subscribe( response => {
+      this.userMap.set(response.id, response.username);
+    },
     error => console.log(error)
     )
   }

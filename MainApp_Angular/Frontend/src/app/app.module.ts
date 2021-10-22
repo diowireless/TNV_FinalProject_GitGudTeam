@@ -30,11 +30,8 @@ import { PickLocationComponent } from './routes/pick-location/pick-location.comp
 import { WatchlistComponent } from './routes/watchlist/watchlist.component';
 import { CommentComponent } from './components/comment/comment.component';
 import { MoviePageComponent } from './routes/movie-page/movie-page.component';
-<<<<<<< HEAD
 import { AverageRatingComponent } from './components/average-rating/average-rating.component';
-=======
 import { AboutUsComponent } from './routes/about-us/about-us.component';
->>>>>>> edec83827add3da83a7927b29cb3b4e54e8eddab
 
 @NgModule({
   declarations: [
@@ -62,11 +59,8 @@ import { AboutUsComponent } from './routes/about-us/about-us.component';
     WatchlistComponent,
     CommentComponent,
     MoviePageComponent,
-<<<<<<< HEAD
     AverageRatingComponent,
-=======
     AboutUsComponent,
->>>>>>> edec83827add3da83a7927b29cb3b4e54e8eddab
   ],
   imports: [
     BrowserModule,
