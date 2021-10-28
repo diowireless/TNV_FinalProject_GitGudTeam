@@ -32,7 +32,7 @@ export class PageUserComponent implements OnInit {
 
 
   saveUser() {//invoca il metodo postUser del service UserService
-    let userRegistered;
+    let userRegistered:UserData;
     this.userService.postUser(this.user).subscribe(register =>{
       userRegistered = register;
       if(userRegistered===null) this.router.navigate(['/login']);

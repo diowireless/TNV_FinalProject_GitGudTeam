@@ -45,7 +45,7 @@ export class HandleUserComponent implements OnInit {
         userupdated = result;
         if(userupdated!= null) {
           this.user = userupdated;
-          this.user.password =  this.user.password = this.transporterService.getDecodedPasswordStorage();
+          this.user.password =  this.transporterService.getDecodedPasswordStorage();
           this.updatesuccess = true;
 
         }
@@ -87,6 +87,9 @@ export class HandleUserComponent implements OnInit {
     this.userService.deleteUser(this.user).subscribe(result => {
       if(result) {
         window.alert("Unsuscribe success, Good Bye!!");
+        this.transporterService.userTransported = null;
+        this.transporterService.clearUserStorage();
+        this.transporterService.clearDecodedPasswordStorage();
         this.transporterService.notifyToLogin(false);
         this.router.navigate(['/welcome']);
       }
