@@ -43,7 +43,6 @@ public class UserController {
 
     @PutMapping("/update/{id}")//espone il metodo nella rotta http://localhost:/users/update/{id}
     public User updateUser(@PathVariable("id") int id, @RequestBody User user) {
-        user.setId(id);
         return userService.updateUser(id, user);
     }
 
