@@ -8,13 +8,15 @@
       <tr>
         <th scope="col">Title</th>
         <th scope="col">Overview</th>
+        <th scope="col">Remove</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of results"  (click)="gotoMoviePage(entry.id)" class="pointer" title="click to navigate to the movie page">
-        <th scope="row"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120>
+      <tr *ngFor="let entry of results">
+        <th scope="row" (click)="gotoMoviePage(entry.id)" class="pointer" title="click to navigate to the movie page"> <img src="{{'https://www.themoviedb.org/t/p/w300_and_h450_bestv2/' + entry.poster_path}} " width=120>
           <br>{{entry.title}} ({{entry.release_date.substring(0,4)}})</th>
-        <td>{{entry.overview}} </td>
+        <td (click)="gotoMoviePage(entry.id)" class="pointer" title="click to navigate to the movie page">{{entry.overview}} </td>
+        <td (click)="removeEntry(entry.id)" class="pointer tableSymbol" title="Remove movie from watchlist"><i class="fas fa-trash"></i></td>
       </tr>
     </tbody>
   </table>

@@ -62,4 +62,13 @@ export class WatchlistComponent implements OnInit {
     this.router.navigate(['/movie-page'], {queryParams: {movie : id}});
   }
 
+  removeEntry(movieId) {
+    this.watchlistService.deleteEntry(this.user.id, movieId).subscribe( (response : any) => {
+      console.log(response);
+      window.location.reload();
+    },
+    error => console.log(error)
+    )
+  }
+
 }

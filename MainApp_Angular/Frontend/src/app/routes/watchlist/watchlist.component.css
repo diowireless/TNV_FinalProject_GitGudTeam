@@ -1,3 +1,8 @@
 .pointer {
   cursor: pointer;
 }
+
+.tableSymbol {
+  text-align: center;
+  font-size: xx-large;
+}
