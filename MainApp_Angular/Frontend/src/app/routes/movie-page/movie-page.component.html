@@ -29,7 +29,11 @@
       </tr>
       <ng-container *ngIf="comments != null">
         <tr *ngFor="let comment of comments">
-          <td colspan="3">Comment by <span class="username">{{userMap.get(comment.userId)}}</span>:<br>{{comment.body}}</td>
+          <td colspan="3">Comment by <span class="username">{{userMap.get(comment.userId)}}</span>:<br>{{comment.body}}
+                          <div *ngIf="comment.userId == user.id">
+                            <br><button class="btn btn-danger btn-sm" (click)="removeComment(comment.id)">Remove Comment</button>
+                          </div>
+          </td>
         </tr>
       </ng-container>
       <tr>

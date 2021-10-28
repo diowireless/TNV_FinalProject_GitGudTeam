@@ -69,6 +69,7 @@ export class MoviesByLocationComponent implements OnInit {
     this.WatchlistService.addEntry({user_id: this.user.id, movie_id: movieId}).subscribe(
       response => {
         console.log(response);
+        window.alert("Movie correctly added to your watchlist");
       },
       error => window.alert("Movie already in watchlist")
     );

@@ -88,4 +88,13 @@ export class MoviePageComponent implements OnInit {
     )
   }
 
+  removeComment(commentId) {
+    this.commentApiService.deleteComment(commentId).subscribe( response => {
+      console.log(response);
+      window.location.reload();
+    } ,
+    error => console.log(error)
+    )
+  }
+
 }
