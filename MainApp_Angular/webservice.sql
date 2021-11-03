@@ -40,6 +40,12 @@ CREATE TABLE `data` (
   `releaseDate` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE `watchlist` (
+  user_id int(11) NOT NULL,
+  movie_id int(11) NOT NULL,
+  PRIMARY KEY(user_id,movie_id)
+) ENGINE=InnoDB;
+
 --
 -- Indexes for dumped tables
 --
