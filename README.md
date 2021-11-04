@@ -26,8 +26,7 @@ Our webapp is composed of 4 services. Here are the steps to follow to install it
   + + php artisan db::seed
   + + php artisan serve
   + From the MainApp folder:
-  + + create a database named "thenetfish"
-  + + import file webservice.sql
+  + + import file webservice.sql inside "thenetfish" database
   + From the MainApp_Angular/Backend folder run the following commands:
   + + npm install
   + + npm start
